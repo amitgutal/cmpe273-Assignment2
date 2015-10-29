@@ -170,7 +170,7 @@ if( resp.StatusCode >= 200 && resp.StatusCode < 300 ) {
 	
 	
     respWriter.Header().Set("Content-Type", "application/json")
-    respWriter.WriteHeader(200)
+    respWriter.WriteHeader(201)
     fmt.Fprintf(respWriter, "%s", marshal_obj)
 	
  }
@@ -211,8 +211,9 @@ if( resp.StatusCode >= 200 && resp.StatusCode < 300 ) {
     db_session.session.DB("cmpe273").C("users").Insert(response_post)
 	
 	resp_Writer, _ := json.MarshalIndent(response_post, "", "    ")
-	
-    fmt.Fprintf(response_Writer, "%s", resp_Writer)
+   
+   fmt.Fprintf(response_Writer, "%s", resp_Writer)
+   response_Writer.WriteHeader(201)
 }
 	  
 	  
